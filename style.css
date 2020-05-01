@@ -1,0 +1,50 @@
+#place{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+}
+
+#search-block{
+    height:50px;
+    text-align:center;
+}
+
+.user-item{
+    width:200px; 
+    height:250px; 
+    text-align:center; 
+    background-color:black; 
+    cursor:pointer;
+    margin-top: 24px;
+    opacity: 0.8;
+
+}
+
+.user-item:hover{
+    opacity: 1;
+}
+
+.user-item:hover .user-image{
+    transform: scale(0.8);
+    transition: transform .2s linear;
+}
+
+.user-image{
+    width:200px; 
+    height:200px;
+    transition: transform .2s linear;
+    transform: scale(1);
+}
+
+.user-name{
+    color:white; 
+    font-size:20px; 
+}
+
+#user-blog-url{
+    margin: 0 auto; 
+    font-size: 18px; 
+    display:inline-block; 
+    width:100%; 
+    text-align:center;
+}
