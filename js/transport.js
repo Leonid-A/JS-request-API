@@ -1,28 +1,20 @@
 let jiju = 'andrevavord';
 function Transport(){
-
     const faultPercent = 1;
-
     const xxx = 'I am protected';
-
     this.year = "year";
     this.brand = "brend";
     this.maxSpeed = "speed";
     this.passTime = function() {
-
     };
-
     this.getProt = () => xxx;
-
 }
-
-
 
 Transport.prototype.passedDistance = function(time,speed){
     return time*speed;
 }
 Transport.prototype.move = function () {
-    
+
 }
 Transport.prototype.moveBy = "planet";
 Transport.prototype.country = null;
@@ -66,8 +58,6 @@ ElectroMobile.prototype.constructor = EarthTransport;
 
 ElectroMobile.prototype = Object.create(EarthTransport.prototype)
 ElectroMobile.prototype.electroShow = function sssss(params) {}
-
-
 
 let nissan = new ElectroMobile();
 

@@ -1,14 +1,11 @@
-start()
-function start(){
-    document.getElementById("search").addEventListener("click", findUser);
-}
+document.getElementById("search").addEventListener("click", findUser);
 
 function getAllUsersAndDrow(){
     const myRequest= new Request();
     myRequest.get(`https://api.github.com/users?page=1&per_page=100`, "JSON", drawAllUsers, getTextFail, progress)
     function drawAllUsers(result){
         const output = result.response.reduce((str, item) => {
-            return str += `<div onclick = "getUser('${item.login}')" data-user="${item.login}" class="user-item">
+            return str += `<div onclick = "getUser('${item.login}', false)" data-user="${item.login}" class="user-item">
                         <img src ="${item.avatar_url}" class="user-image">
                         <span class="user-name" >${item.login}</span></div>`;
         }, '');
@@ -18,20 +15,16 @@ function getAllUsersAndDrow(){
 }
 
 function findUser(){
-    console.log(11111)
-    const clickedUser = document.getElementById("lname").value;
-    getUser(clickedUser, false);
+    if (document.getElementById("lname").value){
+        const clickedUser = document.getElementById("lname").value;
+        getUser(clickedUser, false);
+    }
 }
 
 function getUser(userName, dispatch=true){
+    history.pushState({}, null, `#${userName}`);
+
     const myRequest= new Request();
-
-    if (dispatch){
-        console.log('diiispatch');
-        history.pushState({},"", `#${userName}`);
-        window.dispatchEvent(new Event('hashchange'));
-    }
-
     myRequest.get(`https://api.github.com/users/${userName}`, "JSON", drawUser, getTextFail, progress);
     function drawUser(result){
         const output = `<p><img src ="${result.response.avatar_url}" id="user-image"></p>
@@ -44,14 +37,10 @@ function getUser(userName, dispatch=true){
         document.getElementById("place").innerHTML = output;
     }
 }
-
 window.addEventListener('hashchange', simpleRouter);
 window.addEventListener('DOMContentLoaded', simpleRouter)
 
-
 function simpleRouter() {
-    console.log(2222)
-    console.log(window.location)
     if(window.location.hash === '') {
         getAllUsersAndDrow();
     }
@@ -66,5 +55,5 @@ function progress(){
 }
 
 function getTextFail(){
-    document.getElementById("place").innerHTML = "Page Not Found";
+    document.getElementById("place").innerHTML = "User Not Found";
 }

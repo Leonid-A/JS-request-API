@@ -2,10 +2,10 @@
     display:flex;
     flex-wrap:wrap;
     justify-content: space-around;
+    margin-top:40px;
 }
 
 #search-block{
-    height:50px;
     text-align:center;
 }
 
@@ -14,10 +14,9 @@
     height:250px; 
     text-align:center; 
     background-color:black; 
-    cursor:pointer;
-    margin-top: 24px;
+    margin-bottom: 24px;
     opacity: 0.8;
-
+    cursor: pointer;
 }
 
 .user-item:hover{
@@ -36,13 +35,17 @@
     transform: scale(1);
 }
 
+#user-image{
+    width:300px;
+    
+}
+
 .user-name{
     color:white; 
     font-size:20px; 
 }
 
 #user-blog-url{
-    margin: 0 auto; 
     font-size: 18px; 
     display:inline-block; 
     width:100%; 
